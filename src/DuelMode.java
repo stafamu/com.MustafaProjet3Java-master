@@ -22,6 +22,7 @@ public class DuelMode extends GameMode {
         int[] propOrdi;
         String returnComparison = "";
         String humanComparison = "";
+        int number = 0;
 
 
         if (getDevMode()) {
