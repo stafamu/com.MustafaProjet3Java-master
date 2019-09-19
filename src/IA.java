@@ -39,7 +39,7 @@ public class IA {
 
         String str = "";
         strCompareChallenger = "";
-        for (int i = 0; i < randomNumber.length; i++) {
+        for (int i = 0; i < randomNumber.length || str.equals(strCompareChallenger); i++) {
             if (randomNumber[i] == pUtilisateur[i]) {
                 str += "=";
 
@@ -60,23 +60,23 @@ public class IA {
         for (int i = 0; i < str.length(); i++) {
             strCompareChallenger += "=";
         }
-        if (str.equals(strCompareChallenger)) {
-            logger.info("Affiche la réponse de victoire");
-            System.out.println("Bravo vous avez gagné !");
-            System.out.println();
-            Menu menu = new Menu();
-            menu.endGameMenuMessage();
-            int inputChoice = sc.nextInt();
-            menu.endgameMenu(inputChoice);
-            if (inputChoice == 1) {
-                ChallengerMode challengerMode = new ChallengerMode();
-                challengerMode.playChallengerMode();
-            }
+        if (str.equals(strCompareChallenger))
             return true;
-        } else {
-            return false;
-        }
+        return false;
+
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
     public boolean responseAttacker(int[] secretComb, int tryNumber) {
 
@@ -150,8 +150,9 @@ public class IA {
 
 
     }
+}
 
-    public int[] computerProposal (String humanResponse, int[] humanSecretComb) {
+    /*public int[] computerProposal (String humanResponse, int[] humanSecretComb) {
 
         GameMode gameMode = new GameMode();
 
@@ -177,13 +178,15 @@ public class IA {
                 humanResponse += "+";
             }
         }
-        return oldComputerProposal;
+        return newComputerProposal;
 
     }
 
 
 
     }
+
+     */
 
 
 

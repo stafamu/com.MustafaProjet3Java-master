@@ -10,11 +10,15 @@ public class Human  {
     int [] proposition;
     static final Logger logger = LogManager.getLogger();
     String saisi;
+    String input;
+    int [] inputCombinationHuman;
+
 
 
     public  Human() {
 
         proposition = new int [gameMode.getCombSize()] ;
+        inputCombinationHuman = new int [gameMode.getCombSize()];
 
 
     }
@@ -32,6 +36,22 @@ public class Human  {
             proposition[i] = Integer.parseInt(String.valueOf(saisi.charAt(i)));
         }
         return proposition;
+    }
+
+
+    protected int[] inputSecretCombination() {
+
+        Scanner inputHuman = new Scanner(System.in);
+        input = inputHuman.nextLine();
+        if (input.length() != inputCombinationHuman.length || input.replaceAll("\\D", "").length() != inputCombinationHuman.length) {
+            logger.info("Affiche le message d'erreur mauvaise saisi utilisateur");
+            System.out.println("Vous avez saisi un nombre incorrect. ");
+            return inputSecretCombination();
+        }
+        for (int i = 0; i < gameMode.getCombSize(); i++) {
+            inputCombinationHuman[i] = Integer.parseInt(String.valueOf(input.charAt(i)));
+        }
+        return inputCombinationHuman;
     }
 
 
