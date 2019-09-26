@@ -13,7 +13,9 @@ Différents modes jouables:
 - L'application propose plusieurs modes de jeu:
 
 1er mode: "Challenger" ------> L'utilisateur saisi la combinaison secrète et c'est à l'ordinateur de la trouver.
+
 2ème mode: "Défenseur" ------> L'ordinateur génère la combinaison secrète et c'est à l'utilisateur de la trouver.
+
 3ème mode: "Duel"      ------> L'utilisateur et l'ordinateur jouent tout à tour, le premier à avoir trouvé la combinaison secrète de l'autre a gagné.
 
 
