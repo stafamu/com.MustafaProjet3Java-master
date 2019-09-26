@@ -15,7 +15,7 @@ public class IA {
     String strCompareDefenser;
     Scanner sc = new Scanner(System.in);
     static final Logger logger = LogManager.getLogger();
-    int[] oldComputerProposal;
+
 
 
     public IA(int size) {
@@ -28,12 +28,26 @@ public class IA {
 
     }
 
+    /**
+     * Method for initiating values in an array
+     * @param tab
+     * @param value
+     */
+
     private void initValue(int[] tab, int value) {
 
         for (int i = 0; i < tab.length; i++) {
             tab[i] = value;
         }
     }
+
+    /**
+     * Method for comparing values using the binary search algorithm
+     * @param randomNumber
+     * @param pUtilisateur
+     * @param tryNumber
+     * @return
+     */
 
     public boolean responseDefender(int[] randomNumber, int[] pUtilisateur, int tryNumber) {
 
@@ -86,9 +100,6 @@ public class IA {
         combinationSize = gameMode.getCombSize();
         strCompareDefenser = "";
 
-        // condition  if (human n'as pas trouvé la combinaison secrète, demander à l'ordinateur de jouer (boucler))
-
-
         int[] secretNumber = new int[combinationSize];
         String str = "";
         for (int i = 0; i < secretComb.length; i++) {
@@ -138,6 +149,12 @@ public class IA {
         return false;
     }
 
+    /**
+     * Method used for generating a random number for a given length
+     * @param tab
+     * @return
+     */
+
 
     public int[] genRandomNumber(int[] tab) {
 
@@ -151,43 +168,6 @@ public class IA {
 
     }
 }
-
-    /*public int[] computerProposal (String humanResponse, int[] humanSecretComb) {
-
-        GameMode gameMode = new GameMode();
-
-        int[] newComputerProposal = new int[gameMode.getCombSize()];
-
-        for (int i = 0; i < humanSecretComb.length; i++) {
-            newComputerProposal[i] = ((minThick[i] + maxThick[i]) / 2);
-            for (int j = 0; j < newComputerProposal.length; j++)
-                oldComputerProposal = newComputerProposal;
-
-
-            if (humanSecretComb[i] == newComputerProposal[i]) {
-                humanResponse += "=";
-
-
-            } else if (humanSecretComb[i] < newComputerProposal[i]) {
-                maxThick[i] = newComputerProposal[i];
-                humanResponse += "-";
-
-
-            } else if (humanSecretComb[i] > newComputerProposal[i]) {
-                minThick[i] = newComputerProposal[i] + 1;
-                humanResponse += "+";
-            }
-        }
-        return newComputerProposal;
-
-    }
-
-
-
-    }
-
-     */
-
 
 
 

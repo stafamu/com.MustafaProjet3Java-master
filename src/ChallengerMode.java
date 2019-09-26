@@ -14,6 +14,10 @@ public class ChallengerMode extends GameMode {
 
     }
 
+    /**
+     * Method which is used to launch the Challenger Mode
+     */
+
     public void playChallengerMode() {
 
         if (getDevMode()) {

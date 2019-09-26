@@ -23,6 +23,12 @@ public class Human  {
 
     }
 
+    /**
+     * Method which verifies the correct user input and returns the input value
+     * @return
+     */
+
+
     protected int[] proposition() {
 
         Scanner clavier = new Scanner(System.in);
@@ -37,6 +43,11 @@ public class Human  {
         }
         return proposition;
     }
+
+    /**
+     * Method which does the same as the previous one but used especially for the Secret Combination input
+     * @return
+     */
 
 
     protected int[] inputSecretCombination() {

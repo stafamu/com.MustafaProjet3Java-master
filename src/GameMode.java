@@ -23,6 +23,10 @@ public class GameMode  {
         randomNumber = ia.genRandomNumber(secretCode);
     }
 
+    /**
+     * Method for accessing the Config.properties file
+     */
+
 
     public void propertyValues () {
 

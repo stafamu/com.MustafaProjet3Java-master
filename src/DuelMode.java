@@ -14,6 +14,10 @@ public class DuelMode extends GameMode {
 
     }
 
+    /**
+     * Method which is used to launch the Duel Mode
+     */
+
     public void playDuelMode() {
 
         GameMode gameMode = new GameMode();
@@ -38,12 +42,18 @@ public class DuelMode extends GameMode {
 
                 found = ia.responseAttacker(combSecretHuman, tryNumber);
 
-                if (!found) {
+                if (getDevMode()) {
 
                     System.out.println("");
                     System.out.print("Combinaison secrète de l'ordinateur : ");
                     Arrays.stream(combSecretComputer).forEach(System.out::print);
                     System.out.println("");
+
+
+                }
+
+                if (!found) {
+
                     System.out.println("Veuillez saisir une proposition " + gameMode.getCombSize() + " chiffres entre 0 et 9");
                     propositionHuman = human.proposition();
                     found1 = ia.responseDefender(combSecretComputer, propositionHuman, tryNumber);
@@ -98,23 +108,6 @@ public class DuelMode extends GameMode {
 
 
 
-            /*found = ia.responseAttacker(propositionHuman, tryNumber);
-
-            if (!found) {
-
-                logger.info("Affichage de la combinaison secrète");
-                System.out.println("");
-                System.out.print("(Combinaison secrète : ");
-                Arrays.stream(randomNumber).forEach(System.out::print);
-                System.out.println(")");
-
-                //for (int m = getMaxTry() - 1; m >= 0 && !found1; m--) {
-
-                logger.info("Demande de saisir une proposition");
-                System.out.println("Veuillez saisir votre proposition de " + getCombSize() + " chiffres entre 0 et 9 ! ");
-                found1 = ia.responseDefender(randomNumber, b, tryNumber);
-
-             */
 
 
 
