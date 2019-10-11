@@ -45,7 +45,7 @@ public class DuelMode extends GameMode {
                 if (getDevMode()) {
 
                     System.out.println("");
-                    System.out.print("Combinaison secrète de l'ordinateur : ");
+                    System.out.print("La combinaison secrète de l'ordinateur était : ");
                     Arrays.stream(combSecretComputer).forEach(System.out::print);
                     System.out.println("");
 
