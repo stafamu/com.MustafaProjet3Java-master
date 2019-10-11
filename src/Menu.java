@@ -87,16 +87,7 @@ public class Menu {
 
         }
 
-
-
-
-
-
-
-
-
-
-    public void endGameMenuMessage () {
+        public void endGameMenuMessage () {
 
         logger.info("Affichage du menu de fin de jeu");
         System.out.println("1 - Souhaitez vous rejouer au même mode ?");
