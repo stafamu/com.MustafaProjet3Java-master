@@ -69,9 +69,8 @@ public class DuelMode extends GameMode {
 
                     Menu menu = new Menu();
                     menu.endGameMenuMessage();
-                    int inputChoice = sc.nextInt();
-                    menu.endgameMenu(inputChoice);
-                    if (inputChoice == 1) {
+                    menu.endgameMenu();
+                    if (menu.inputChoice == 1) {
                         DuelMode duelMode = new DuelMode();
                         duelMode.playDuelMode();
                     }

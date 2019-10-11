@@ -35,7 +35,7 @@ public class Human  {
         saisi = clavier.nextLine();
         if (saisi.length() != proposition.length || saisi.replaceAll("\\D", "").length() != proposition.length) {
             logger.info("Affiche le message d'erreur mauvaise saisi utilisateur");
-            System.out.println("Vous avez saisi un nombre incorrect. ");
+            System.out.println("Vous avez saisi un nombre incorrect --- Veuillez recommencer ! ");
             return proposition();
         }
         for (int i = 0; i < gameMode.getCombSize(); i++) {

@@ -5,7 +5,7 @@ public class ChallengerMode extends GameMode {
 
     protected int tryNumber;
     Human human = new Human();
-    Scanner sc = new Scanner(System.in);
+
 
 
     public ChallengerMode() {
@@ -48,9 +48,8 @@ public class ChallengerMode extends GameMode {
             System.out.println();
             Menu menu = new Menu();
             menu.endGameMenuMessage();
-            int inputChoice = sc.nextInt();
-            menu.endgameMenu(inputChoice);
-            if (inputChoice == 1) {
+            menu.endgameMenu();
+            if (menu.inputChoice == 1) {
                 ChallengerMode challengerMode = new ChallengerMode();
                 challengerMode.playChallengerMode();
 

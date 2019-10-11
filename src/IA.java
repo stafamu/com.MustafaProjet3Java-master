@@ -2,7 +2,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
-import java.util.Scanner;
+
 
 public class IA {
 
@@ -13,7 +13,6 @@ public class IA {
     int combinationSize;
     String strCompareChallenger;
     String strCompareDefenser;
-    Scanner sc = new Scanner(System.in);
     static final Logger logger = LogManager.getLogger();
 
 
