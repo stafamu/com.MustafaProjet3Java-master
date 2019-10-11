@@ -8,6 +8,7 @@ public class ChallengerMode extends GameMode {
 
 
 
+
     public ChallengerMode() {
 
         tryNumber = 0;
@@ -49,7 +50,7 @@ public class ChallengerMode extends GameMode {
             Menu menu = new Menu();
             menu.endGameMenuMessage();
             menu.endgameMenu();
-            if (menu.inputChoice == 1) {
+            if (menu.inputChoice.equals("1")) {
                 ChallengerMode challengerMode = new ChallengerMode();
                 challengerMode.playChallengerMode();
 

@@ -1,6 +1,7 @@
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.IOException;
 import java.util.ResourceBundle;
 
 public class GameMode  {
@@ -19,9 +20,20 @@ public class GameMode  {
 
         ia = new IA(getCombSize());
 
-        secretCode = new int [getCombSize()];
+        secretCode = new int[getCombSize()];
         randomNumber = ia.genRandomNumber(secretCode);
     }
+
+
+
+
+
+
+
+
+
+
+
 
     /**
      * Method for accessing the Config.properties file

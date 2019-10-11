@@ -47,7 +47,7 @@ public class DefenserMode extends GameMode {
         Menu menu = new Menu();
         menu.endGameMenuMessage();
         menu.endgameMenu();
-        if (menu.inputChoice == 1) {
+        if (menu.inputChoice.equals("1")) {
             System.out.println("");
             DefenserMode defenserMode = new DefenserMode();
             defenserMode.playDefenserMode();

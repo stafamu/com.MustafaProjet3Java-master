@@ -1,13 +1,15 @@
+import javafx.scene.chart.ScatterChart;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.nio.channels.ScatteringByteChannel;
 import java.util.Scanner;
 
 public class Menu {
 
     protected static final Logger logger = LogManager.getLogger();
     Scanner sc = new Scanner(System.in);
-    int inputChoice;
+    String inputChoice;
 
 
     public Menu() {
@@ -66,25 +68,24 @@ public class Menu {
 
     public void endgameMenu() {
 
+        inputChoice = sc.nextLine();
 
-        inputChoice = sc.nextInt();
-
-        if (inputChoice != 1 && inputChoice != 2 && inputChoice != 3) {
-            System.out.println( "Vous avez saisi un mauvais nombre ! --- Veuillez recommencer! ");
+        if (!inputChoice.equals("1") && !inputChoice.equals("2") && !inputChoice.equals("3")) {
+            System.out.println("Vous avez saisi un mauvais nombre ! --- Veuillez recommencer! ");
             System.out.println("");
             this.endGameMenuMessage();
             this.endgameMenu();
-
-        } else if (inputChoice == 2) {
+        }else if (inputChoice.equals("2")) {
             this.welcomeMenu();
-        } else if (inputChoice == 3) {
-            System.out.println("Merci d'avoir joué à bientôt !");
-            System.exit(0);
+        } else if (inputChoice.equals("3")) {
+                System.out.println("Merci d'avoir joué à bientôt !");
+                System.exit(0);
+
+            }
+
+
 
         }
-    }
-
-
 
 
 

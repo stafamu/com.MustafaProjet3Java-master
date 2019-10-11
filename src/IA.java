@@ -79,18 +79,6 @@ public class IA {
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
     public boolean responseAttacker(int[] secretComb, int tryNumber) {
 
 
