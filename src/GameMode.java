@@ -3,7 +3,16 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
 
+<<<<<<< HEAD
 public abstract class GameMode {
+=======
+    IA ia;
+    protected int tryNumber;
+    protected int[] randomNumber;
+    protected int [] secretCode;
+    protected static final Logger logger = LogManager.getLogger();
+    Menu menu = new Menu();
+>>>>>>> origin/master
 
 
     Configuration configuration;

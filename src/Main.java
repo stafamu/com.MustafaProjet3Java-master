@@ -2,6 +2,7 @@ public class Main {
 
     public static void main(String args[]) {
 
+<<<<<<< HEAD
         //try {
 
 
@@ -13,8 +14,21 @@ public class Main {
 
     }
 }
+=======
+<<<<<<< HEAD
+        try {
+>>>>>>> origin/master
 
 
+<<<<<<< HEAD
+=======
+            System.out.println("Erreur veuillez vérifier votre fichier de configuration");
+        }
+=======
+       Run run = new Run();
+       run.Game();
+>>>>>>> Refacto - New classes
+>>>>>>> origin/master
 
 
 
