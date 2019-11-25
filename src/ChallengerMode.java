@@ -47,12 +47,19 @@ public class ChallengerMode extends GameMode {
             logger.info("Affiche la réponse de victoire");
             System.out.println("Bravo vous avez gagné !");
             System.out.println();
-            Menu menu = new Menu();
             menu.endGameMenuMessage();
+<<<<<<< HEAD
             menu.endgameMenu();
             if (menu.inputChoice.equals("1")) {
                 ChallengerMode challengerMode = new ChallengerMode();
                 challengerMode.playChallengerMode();
+=======
+            //int inputChoice = sc.nextInt();
+            menu.endgameMenu();
+            //if (inputChoice == 1) {
+                //ChallengerMode challengerMode = new ChallengerMode();
+                //challengerMode.playChallengerMode();
+>>>>>>> Refacto - New classes
 
         }
 
@@ -60,7 +67,7 @@ public class ChallengerMode extends GameMode {
 
         }
     }
-}
+
 
 
 

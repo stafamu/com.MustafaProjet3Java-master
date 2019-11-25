@@ -58,10 +58,12 @@ public class IA {
 
 
             } else if (randomNumber[i] < pUtilisateur[i]) {
+                maxThick[i] = pUtilisateur[i];
                 str += "-";
 
 
             } else if (randomNumber[i] > pUtilisateur[i]) {
+                minThick[i] = pUtilisateur[i] + 1;
                 str += "+";
 
 
@@ -91,8 +93,7 @@ public class IA {
         String str = "";
         for (int i = 0; i < secretComb.length; i++) {
             secretNumber[i] = ((minThick[i] + maxThick[i]) / 2);
-            for (int j = 0; j < secretNumber.length; j++)
-                proposal = secretNumber;
+            this.saveProposal(secretNumber);
 
 
             if (secretComb[i] == secretNumber[i]) {
@@ -154,7 +155,47 @@ public class IA {
 
 
     }
-}
+
+    public int [] saveProposal(int [] secretCombination){
+
+        GameMode gameMode = new GameMode();
+
+        for (int i = 0; i < gameMode.getCombSize(); i++)
+            proposal = secretCombination;
+        return proposal;
+
+
+    }
+
+   /** public String responseAI(){
+
+        for (int i = 0; i < secretComb.length; i++) {
+            secretNumber[i] = ((minThick[i] + maxThick[i]) / 2);
+            this.saveProposal(secretNumber);
+
+
+            if (secretComb[i] == secretNumber[i]) {
+                str += "=";
+
+
+            } else if (secretComb[i] < secretNumber[i]) {
+                maxThick[i] = secretNumber[i];
+                str += "-";
+
+
+            } else if (secretComb[i] > secretNumber[i]) {
+                minThick[i] = secretNumber[i] + 1;
+                str += "+";
+
+
+            }
+    */
+
+
+
+        }
+
+
 
 
 

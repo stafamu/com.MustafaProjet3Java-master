@@ -49,6 +49,7 @@ public class DefenserMode extends GameMode {
         menu.endgameMenu();
         if (menu.inputChoice.equals("1")) {
             System.out.println("");
+<<<<<<< HEAD
             DefenserMode defenserMode = new DefenserMode();
             defenserMode.playDefenserMode();
         }
@@ -57,6 +58,16 @@ public class DefenserMode extends GameMode {
 
 
 
+=======
+            Menu menu = new Menu();
+            menu.endGameMenuMessage();
+            //Scanner sc = new Scanner(System.in);
+            //inputChoice = sc.nextInt();
+            menu.endgameMenu();
+            if (inputChoice == 1) {
+                System.out.println("");
+                playDefenserMode();
+>>>>>>> Refacto - New classes
 
 
 

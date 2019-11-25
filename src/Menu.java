@@ -34,7 +34,6 @@ public class Menu {
         System.out.println("3 - Duel");
         System.out.println("**************************************");
 
-        Scanner sc = new Scanner(System.in);
         int input = sc.nextInt();
         String choice = "";
         if (input == 1) {
@@ -66,10 +65,16 @@ public class Menu {
 
     }
 
+<<<<<<< HEAD
     public void endgameMenu() {
 
         inputChoice = sc.nextLine();
 
+=======
+    public void endgameMenu () {
+        inputChoice = sc.nextLine();
+
+>>>>>>> Refacto - New classes
         if (!inputChoice.equals("1") && !inputChoice.equals("2") && !inputChoice.equals("3")) {
             System.out.println("Vous avez saisi un mauvais nombre ! --- Veuillez recommencer! ");
             System.out.println("");
@@ -78,16 +83,28 @@ public class Menu {
         }else if (inputChoice.equals("2")) {
             this.welcomeMenu();
         } else if (inputChoice.equals("3")) {
+<<<<<<< HEAD
                 System.out.println("Merci d'avoir joué à bientôt !");
                 System.exit(0);
+=======
+            System.out.println("Merci d'avoir joué à bientôt !");
+            System.exit(0);
+
+        }
+>>>>>>> Refacto - New classes
 
             }
 
 
 
+<<<<<<< HEAD
         }
 
         public void endGameMenuMessage () {
+=======
+
+    public void endGameMenuMessage () {
+>>>>>>> Refacto - New classes
 
         logger.info("Affichage du menu de fin de jeu");
         System.out.println("1 - Souhaitez vous rejouer au même mode ?");

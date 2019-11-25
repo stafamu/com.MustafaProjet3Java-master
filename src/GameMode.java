@@ -9,6 +9,7 @@ public class GameMode  {
     protected int[] randomNumber;
     protected int [] secretCode;
     protected static final Logger logger = LogManager.getLogger();
+    Menu menu = new Menu();
 
 
     private ResourceBundle myFile = ResourceBundle.getBundle("config");

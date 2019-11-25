@@ -69,10 +69,18 @@ public class DuelMode extends GameMode {
 
                     Menu menu = new Menu();
                     menu.endGameMenuMessage();
+<<<<<<< HEAD
                     menu.endgameMenu();
                     if (menu.inputChoice.equals("1")) {
                         DuelMode duelMode = new DuelMode();
                         duelMode.playDuelMode();
+=======
+                    //int inputChoice = sc.nextInt();
+                    menu.endgameMenu();
+                    //if (inputChoice == 1) {
+                        //DuelMode duelMode = new DuelMode();
+                        //duelMode.playDuelMode();
+>>>>>>> Refacto - New classes
                     }
 
                         }
@@ -80,7 +88,7 @@ public class DuelMode extends GameMode {
 
                     }
                 }
-            }
+
 
 
 

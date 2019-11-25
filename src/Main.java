@@ -2,6 +2,7 @@ public class Main {
 
     public static void main (String args []) {
 
+<<<<<<< HEAD
         try {
 
             Menu menu = new Menu();
@@ -10,6 +11,10 @@ public class Main {
 
             System.out.println("Erreur veuillez vérifier votre fichier de configuration");
         }
+=======
+       Run run = new Run();
+       run.Game();
+>>>>>>> Refacto - New classes
 
 
 
