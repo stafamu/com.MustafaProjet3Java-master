@@ -1,17 +1,16 @@
-import java.util.Arrays;
-
-
 public class ChallengerMode extends GameMode {
 
     protected int tryNumber;
-    Human human = new Human();
-
-
+    protected int [] secretCombination;
+    protected String compare = "";
 
 
     public ChallengerMode() {
 
+        secretCombination = new int [configuration.getCombSize()];
+
         tryNumber = 0;
+
 
     }
 
@@ -19,48 +18,48 @@ public class ChallengerMode extends GameMode {
      * Method which is used to launch the Challenger Mode
      */
 
-    public void playChallengerMode() {
+    @Override
+    public void play(Player human, Player ai) {
 
-        if (getDevMode()) {
+        ai.generateSecretCombination(secretCombination);
+        while (tryNumber != configuration.maxTry) {
 
-            logger.info("Affichage de la combinaison secrète");
-            System.out.println("");
-            System.out.print("(Combinaison secrète : ");
-            Arrays.stream(randomNumber).forEach(System.out::print);
-            System.out.println(")");
+            compare = analyseCombination(secretCombination,human.makeProposal());
 
-        }
-
-        boolean found = false;
-        for (int i = getMaxTry() - 1; i >= 0 && !found; i--) {
-
-            tryNumber = i;
-
-            logger.info("Demande de saisir une proposition");
-            System.out.println("Veuillez saisir votre proposition de " + getCombSize() + " chiffres entre 0 et 9 ! ");
-            int[] b = human.proposition();
-            found = ia.responseDefender(randomNumber, b, tryNumber);
-
-
-        } if(found) {
-
-            logger.info("Affiche la réponse de victoire");
-            System.out.println("Bravo vous avez gagné !");
-            System.out.println();
-            Menu menu = new Menu();
-            menu.endGameMenuMessage();
-            menu.endgameMenu();
-            if (menu.inputChoice.equals("1")) {
-                ChallengerMode challengerMode = new ChallengerMode();
-                challengerMode.playChallengerMode();
-
-        }
-
+            if (compare.equals("====")) {
+                logger.info("Affiche la réponse de victoire");
+                System.out.println("Bravo vous avez gagné !");
+                System.out.println();
+                menu.endGameMenuMessage();
+                menu.endgameMenu();
+            } else if(tryNumber==configuration.maxTry){
+                System.out.println("Dommage vous avez perdu");
+            } else {
+                ai.giveHint(compare,tryNumber);
+                tryNumber++;
+            }
 
 
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

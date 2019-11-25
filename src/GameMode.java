@@ -1,63 +1,133 @@
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import java.util.ResourceBundle;
 
-public class GameMode  {
+import java.util.Arrays;
 
-    IA ia;
-    protected int tryNumber;
-    protected int[] randomNumber;
-    protected int [] secretCode;
-    protected static final Logger logger = LogManager.getLogger();
+public abstract class GameMode {
 
 
-    private ResourceBundle myFile = ResourceBundle.getBundle("config");
+    Configuration configuration;
+    int[] proposal;
+    Menu menu = new Menu();
+    Human human = new Human();
+    AI ai = new AI();
+    int[] maxThick;
+    int[] minThick;
+    int[] combSize;
+    static final Logger logger = LogManager.getLogger();
+    //String response = "";
 
-    public GameMode () {
 
 
-        ia = new IA(getCombSize());
+    public GameMode() {
 
-        secretCode = new int[getCombSize()];
-        randomNumber = ia.genRandomNumber(secretCode);
+
+
+        configuration = new Configuration();
+        combSize = new int[configuration.getCombSize()];
+        //input = human.makeSecretCombination();
     }
 
 
+    public void play(Player human, Player ai) {
 
 
-
-
-
-
-
-
-
-
-    /**
-     * Method for accessing the Config.properties file
-     */
-
-
-    public void propertyValues () {
-
-        System.out.println("Donnèes fichier : " + myFile.getString("maxTry"));
-    }
-
-    public  Integer  getCombSize() {
-
-        return new Integer (myFile.getString("size"))  ;
 
 
     }
 
-    public  Integer getMaxTry() {
 
-        return new Integer(myFile.getString("maxTry"));
+    public boolean verifyInput(int[] combinationSize, String input) {
+
+        if (input.length() != combinationSize.length || input.replaceAll("\\D", "").length() != combinationSize.length) {
+            //Configuration.logger.info("Affiche le message d'erreur mauvaise saisi utilisateur");
+            //System.out.println("Vous avez saisi un nombre incorrect --- Veuillez recommencer ! ");
+        }
+        return true;
     }
 
-    public  Boolean getDevMode() {
 
-        return new Boolean(myFile.getString("devMode"));
+    public void ifDevMode(int[] combOrProposal) {
+
+        if (configuration.getDevMode()) {
+
+            //logger.info("Affichage de la combinaison secrète");
+
+
+            System.out.println("");
+            System.out.print("(Combinaison secrète : ");
+            Arrays.stream(combOrProposal).forEach(System.out::print);
+            System.out.println(")");
+        }
+    }
+
+    public String analyseCombination(int[] combinationToFind, int[] combinationProposal) {
+
+        String response = "";
+
+        for (int i = 0; i < combinationToFind.length; i++) {
+
+            if (combinationToFind[i] > combinationProposal[i]) {
+                response += "-";
+
+            } else if (combinationToFind[i] < combinationProposal[i]){
+                response += "+";
+
+            } else {
+                response += "=";
+            }
+
+        }return response;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

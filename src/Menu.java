@@ -12,6 +12,11 @@ public class Menu {
     String inputChoice;
 
 
+
+
+
+
+
     public Menu() {
 
 
@@ -55,13 +60,13 @@ public class Menu {
 
         if (input == 1) {
             ChallengerMode challengerMode = new ChallengerMode();
-            challengerMode.playChallengerMode();
+            challengerMode.play(new Human(), new AI());
         } else if (input == 2) {
             DefenserMode defenserMode = new DefenserMode();
-            defenserMode.playDefenserMode();
+            //defenserMode.play();
         } else if (input == 3) {
             DuelMode duelMode = new DuelMode();
-            duelMode.playDuelMode();
+            //duelMode.play();
         }
 
     }

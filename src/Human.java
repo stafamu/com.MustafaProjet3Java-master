@@ -1,72 +1,129 @@
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import java.util.Scanner;
 
-public class Human  {
+public class Human extends Player {
 
-
-    GameMode gameMode = new GameMode();
-    int [] proposition;
-    static final Logger logger = LogManager.getLogger();
-    String saisi;
+    Scanner sc = new Scanner(System.in);
+    int[] secretComb = new int[configuration.getCombSize()];
+    int[] proposal = new int[configuration.getCombSize()];
     String input;
-    int [] inputCombinationHuman;
 
 
 
-    public  Human() {
-
-        proposition = new int [gameMode.getCombSize()] ;
-        inputCombinationHuman = new int [gameMode.getCombSize()];
+    public Human() {
 
 
     }
 
-    /**
-     * Method which verifies the correct user input and returns the input value
-     * @return
-     */
+    @Override
+    public int[] generateSecretCombination(int[] tab) {
+        System.out.println("Veuillez saisir votre combinaison secrète de " + configuration.getCombSize() + " chiffres entre 0 et 9 ! ");
+        input = sc.nextLine();
+        return convertStringtoIntTab(secretComb);
 
-
-    protected int[] proposition() {
-
-        Scanner clavier = new Scanner(System.in);
-        saisi = clavier.nextLine();
-        if (saisi.length() != proposition.length || saisi.replaceAll("\\D", "").length() != proposition.length) {
-            logger.info("Affiche le message d'erreur mauvaise saisi utilisateur");
-            System.out.println("Vous avez saisi un nombre incorrect --- Veuillez recommencer ! ");
-            return proposition();
-        }
-        for (int i = 0; i < gameMode.getCombSize(); i++) {
-            proposition[i] = Integer.parseInt(String.valueOf(saisi.charAt(i)));
-        }
-        return proposition;
     }
 
-    /**
-     * Method which does the same as the previous one but used especially for the Secret Combination input
-     * @return
-     */
+    @Override
+    public int [] generateSecretCombination() {
 
+        System.out.println("Veuillez saisir votre combinaison secrète de " + configuration.getCombSize() + " chiffres entre 0 et 9 ! ");
+        input = sc.nextLine();
+        return convertStringtoIntTab(secretComb);
 
-    protected int[] inputSecretCombination() {
-
-        Scanner inputHuman = new Scanner(System.in);
-        input = inputHuman.nextLine();
-        if (input.length() != inputCombinationHuman.length || input.replaceAll("\\D", "").length() != inputCombinationHuman.length) {
-            logger.info("Affiche le message d'erreur mauvaise saisi utilisateur");
-            System.out.println("Vous avez saisi un nombre incorrect. ");
-            return inputSecretCombination();
-        }
-        for (int i = 0; i < gameMode.getCombSize(); i++) {
-            inputCombinationHuman[i] = Integer.parseInt(String.valueOf(input.charAt(i)));
-        }
-        return inputCombinationHuman;
     }
+
+    @Override
+        public int [] makeProposal () {
+
+        System.out.println("Veuillez saisir votre proposition de " + configuration.getCombSize() + " chiffres entre 0 et 9 ! ");
+        input = sc.nextLine();
+        return convertStringtoIntTab(proposal);
 
 
     }
+
+    @Override
+    public void giveHint(String hint, int tryNumber) {
+
+        System.out.print("  -> Réponse : " + hint + " ------> " + " il vous reste " + tryNumber + " essais ! ");
+
+
+    }
+
+    public int[] convertStringtoIntTab(int tab[]) {
+
+        for (int i = 0; i < configuration.getCombSize(); i++) {
+            tab[i] = Integer.parseInt(String.valueOf(input.charAt(i)));
+        }
+
+        return tab;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
