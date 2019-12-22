@@ -33,6 +33,9 @@ public class Human extends Player {
 
         System.out.println("Veuillez saisir votre combinaison secrète de " + configuration.getCombSize() + " chiffres entre 0 et 9 ! ");
         input = sc.nextLine();
+        while(verifyInput(input)){
+            return generateSecretCombination();
+        }
         if (configuration.getDevMode()) {
             logger.info("Affichage de la combinaison secrète Humain");
             System.out.print("(Combinaison secrète : " + input);
@@ -53,6 +56,9 @@ public class Human extends Player {
         try {
             System.out.println("Veuillez saisir votre proposition de " + configuration.getCombSize() + " chiffres entre 0 et 9 ! ");
             input = sc.nextLine();
+            while(verifyInput(input)){
+                return makeProposal();
+            }
             System.out.print("Proposition : " + input);
         } catch (Exception e) {
             System.out.println("Vous ave saisi un mauvais nombre");
@@ -83,7 +89,22 @@ public class Human extends Player {
         }
         return tab;
     }
+
+    public boolean verifyInput(String input) {
+
+        if (input.length() != configuration.getCombSize() || input.replaceAll("\\D", "").length() != configuration.getCombSize()) {
+            Configuration.logger.info("Affiche le message d'erreur mauvaise saisi utilisateur");
+            System.out.println("Vous avez saisi un nombre incorrect --- Veuillez recommencer ! ");
+            return true;
+        }
+        return false;
+    }
 }
+
+
+
+
+
 
 
 

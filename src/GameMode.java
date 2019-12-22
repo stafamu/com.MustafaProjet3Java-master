@@ -45,17 +45,6 @@ public abstract class GameMode {
 
     }
 
-
-    public boolean verifyInput(String input) {
-
-        if (input.length() != secretCombinationHuman.length || input.replaceAll("\\D", "").length() != secretCombinationHuman.length) {
-            Configuration.logger.info("Affiche le message d'erreur mauvaise saisi utilisateur");
-            System.out.println("Vous avez saisi un nombre incorrect --- Veuillez recommencer ! ");
-
-        }
-        return verifyInput(input);
-    }
-
     public String analyseCombination(int[] combinationToFind, int[] combinationProposal) {
 
         String response = "";
@@ -79,7 +68,7 @@ public abstract class GameMode {
     }
 
     /**
-     * Method which compares two Strings 
+     * Method which compares two Strings
      * @return
      */
 
