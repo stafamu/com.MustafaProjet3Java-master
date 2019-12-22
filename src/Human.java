@@ -30,18 +30,21 @@ public class Human extends Player {
     @Override
     public int[] generateSecretCombination() {
 
+        try {
+            System.out.println("Veuillez saisir votre combinaison secrète de " + configuration.getCombSize() + " chiffres entre 0 et 9 ! ");
+            input = sc.nextLine();
+            if (configuration.getDevMode()) {
+                logger.info("Affichage de la combinaison secrète Humain");
+                System.out.print("(Combinaison secrète : " + input);
+                System.out.println(")");
+            }
+            return convertStringtoIntTab(secretComb);
 
-        System.out.println("Veuillez saisir votre combinaison secrète de " + configuration.getCombSize() + " chiffres entre 0 et 9 ! ");
-        input = sc.nextLine();
-        while(verifyInput(input)){
+        } catch (Exception e) {
+            Configuration.logger.info("Affiche le message d'erreur mauvaise saisi utilisateur");
+            System.out.println("Vous avez saisi un nombre incorrect --- Veuillez recommencer ! ");
             return generateSecretCombination();
         }
-        if (configuration.getDevMode()) {
-            logger.info("Affichage de la combinaison secrète Humain");
-            System.out.print("(Combinaison secrète : " + input);
-            System.out.println(")");
-        }
-        return convertStringtoIntTab(secretComb);
     }
 
 
@@ -56,16 +59,13 @@ public class Human extends Player {
         try {
             System.out.println("Veuillez saisir votre proposition de " + configuration.getCombSize() + " chiffres entre 0 et 9 ! ");
             input = sc.nextLine();
-            while(verifyInput(input)){
-                return makeProposal();
-            }
             System.out.print("Proposition : " + input);
+            return convertStringtoIntTab(proposal);
         } catch (Exception e) {
-            System.out.println("Vous ave saisi un mauvais nombre");
+            Configuration.logger.info("Affiche le message d'erreur mauvaise saisi utilisateur");
+            System.out.println("Vous avez saisi un nombre incorrect --- Veuillez recommencer ! ");
+            return makeProposal();
         }
-        return convertStringtoIntTab(proposal);
-
-
     }
 
     @Override
@@ -79,18 +79,16 @@ public class Human extends Player {
 
     public int[] convertStringtoIntTab(int tab[]) {
 
-        try {
-            for (int i = 0; i < configuration.getCombSize(); i++) {
-                tab[i] = Integer.parseInt(String.valueOf(input.charAt(i)));
-            }
-        } catch (Exception e) {
 
-            System.out.println("Vous avez saisi un ");
+        for (int i = 0; i < configuration.getCombSize(); i++) {
+            tab[i] = Integer.parseInt(String.valueOf(input.charAt(i)));
         }
         return tab;
     }
+}
 
-    public boolean verifyInput(String input) {
+
+   /* public boolean verifyInput(String input) {
 
         if (input.length() != configuration.getCombSize() || input.replaceAll("\\D", "").length() != configuration.getCombSize()) {
             Configuration.logger.info("Affiche le message d'erreur mauvaise saisi utilisateur");
@@ -100,6 +98,7 @@ public class Human extends Player {
         return false;
     }
 }
+    */
 
 
 
