@@ -78,6 +78,11 @@ public abstract class GameMode {
         return response;
     }
 
+    /**
+     * Method which compares two Strings 
+     * @return
+     */
+
 
     public String compareStringLength() {
         String stringLength = new String();
