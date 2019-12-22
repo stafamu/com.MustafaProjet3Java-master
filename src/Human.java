@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Human extends Player {
@@ -6,7 +7,6 @@ public class Human extends Player {
     int[] secretComb = new int[configuration.getCombSize()];
     int[] proposal = new int[configuration.getCombSize()];
     String input;
-
 
 
     public Human() {
@@ -18,24 +18,45 @@ public class Human extends Player {
     public int[] generateSecretCombination(int[] tab) {
         System.out.println("Veuillez saisir votre combinaison secrète de " + configuration.getCombSize() + " chiffres entre 0 et 9 ! ");
         input = sc.nextLine();
+        if (configuration.getDevMode()) {
+            logger.info("Affichage de la combinaison secrète");
+            System.out.print("(Combinaison secrète : " + input);
+            System.out.println(")");
+        }
         return convertStringtoIntTab(secretComb);
 
     }
 
     @Override
-    public int [] generateSecretCombination() {
+    public int[] generateSecretCombination() {
+
 
         System.out.println("Veuillez saisir votre combinaison secrète de " + configuration.getCombSize() + " chiffres entre 0 et 9 ! ");
         input = sc.nextLine();
+        if (configuration.getDevMode()) {
+            logger.info("Affichage de la combinaison secrète Humain");
+            System.out.print("(Combinaison secrète : " + input);
+            System.out.println(")");
+        }
         return convertStringtoIntTab(secretComb);
+    }
 
+
+    @Override
+    public int[] makeProposal(int[] max, int[] min) {
+        return new int[0];
     }
 
     @Override
-        public int [] makeProposal () {
+    public int[] makeProposal() {
 
-        System.out.println("Veuillez saisir votre proposition de " + configuration.getCombSize() + " chiffres entre 0 et 9 ! ");
-        input = sc.nextLine();
+        try {
+            System.out.println("Veuillez saisir votre proposition de " + configuration.getCombSize() + " chiffres entre 0 et 9 ! ");
+            input = sc.nextLine();
+            System.out.print("Proposition : " + input);
+        } catch (Exception e) {
+            System.out.println("Vous ave saisi un mauvais nombre");
+        }
         return convertStringtoIntTab(proposal);
 
 
@@ -44,20 +65,37 @@ public class Human extends Player {
     @Override
     public void giveHint(String hint, int tryNumber) {
 
-        System.out.print("  -> Réponse : " + hint + " ------> " + " il vous reste " + tryNumber + " essais ! ");
+        System.out.print("  -> Réponse : " + hint + " ------> " + " il vous reste " + (configuration.getMaxTry() - tryNumber) + " essais ! ");
+        System.out.println();
 
 
     }
 
     public int[] convertStringtoIntTab(int tab[]) {
 
-        for (int i = 0; i < configuration.getCombSize(); i++) {
-            tab[i] = Integer.parseInt(String.valueOf(input.charAt(i)));
-        }
+        try {
+            for (int i = 0; i < configuration.getCombSize(); i++) {
+                tab[i] = Integer.parseInt(String.valueOf(input.charAt(i)));
+            }
+        } catch (Exception e) {
 
+            System.out.println("Vous avez saisi un ");
+        }
         return tab;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
