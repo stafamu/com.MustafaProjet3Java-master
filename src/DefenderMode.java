@@ -1,9 +1,6 @@
-import java.util.Arrays;
-
 public class DefenderMode extends GameMode {
 
-    protected String compare = "";
-
+    private String compare = "";
 
     public DefenderMode() {
 
@@ -18,7 +15,7 @@ public class DefenderMode extends GameMode {
     public void play(Player human, Player ai) {
 
         secretCombinationHuman = human.generateSecretCombination();
-        while (tryNumber != configuration.maxTry + 1 || !compare.equals(compareStringLength())) {
+        while (tryNumber != configuration.getMaxTry() + 1 || !compare.equals(compareStringLength())) {
             supposition = ai.makeProposal(maxThick, minThick);
             compare = analyseCombination(secretCombinationHuman, supposition);
             intelligence(compare.toCharArray());
@@ -27,7 +24,7 @@ public class DefenderMode extends GameMode {
             if (compare.equals(compareStringLength())) {
                 victoryAI();
                 this.replayGame();
-            } else if (tryNumber == configuration.maxTry + 1) {
+            } else if (tryNumber == configuration.getMaxTry() + 1) {
                 this.replayGame();
             }
         }

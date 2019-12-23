@@ -1,9 +1,6 @@
-import java.util.Arrays;
-import java.util.Scanner;
-
 public class ChallengerMode extends GameMode {
 
-    protected String compare;
+    private String compare;
 
 
     public ChallengerMode() {
@@ -18,7 +15,7 @@ public class ChallengerMode extends GameMode {
     public void play(Player human, Player ai) {
 
         ai.generateSecretCombination(secretCombinationAI);
-        while (tryNumber != configuration.maxTry + 1) {
+        while (tryNumber != configuration.getMaxTry() + 1) {
             humanProposition = human.makeProposal();
             compare = analyseCombination(secretCombinationAI, humanProposition);
             ai.giveHint(compare, tryNumber);
@@ -26,7 +23,7 @@ public class ChallengerMode extends GameMode {
             if (compare.equals(compareStringLength())) {
                 victoryHuman();
                 replayGame();
-            } else if (tryNumber == configuration.maxTry + 1) {
+            } else if (tryNumber == configuration.getMaxTry() + 1) {
                 System.out.println("Dommage vous avez perdu !");
                 System.out.print("La combinaison secrète était : ");
                 printArray(secretCombinationAI);

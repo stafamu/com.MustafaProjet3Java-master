@@ -10,14 +10,14 @@ public abstract class GameMode {
     Configuration configuration;
     Human human = new Human();
     AI ai = new AI();
-    int[] maxThick;
-    int[] minThick;
-    int combSize;
+    protected int[] maxThick;
+    protected int[] minThick;
+    protected int combSize;
     protected int[] secretCombinationHuman;
     protected int[] secretCombinationAI;
-    int[] supposition;
-    int[] humanProposition;
-    int maxTry;
+    protected int [] supposition;
+    protected int[] humanProposition;
+    protected int maxTry;
 
 
     public GameMode() {

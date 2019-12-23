@@ -1,12 +1,9 @@
-import java.util.Arrays;
-import java.util.Scanner;
-
 public class DuelMode extends GameMode {
 
 
     Human human = new Human();
-    protected String compareP1 = "";
-    protected String compareP2 = "";
+    private String compareP1 = "";
+    private String compareP2 = "";
 
 
     public DuelMode() {
@@ -25,6 +22,7 @@ public class DuelMode extends GameMode {
         ai.generateSecretCombination(secretCombinationAI);
 
         do {
+            tryNumber++;
             supposition = ai.makeProposal(maxThick, minThick);
             compareP1 = analyseCombination(secretCombinationHuman, supposition);
             intelligence(compareP1.toCharArray());
@@ -39,8 +37,8 @@ public class DuelMode extends GameMode {
                 victoryHuman();
                 this.replayGame();
             }
-            tryNumber++;
-        } while (tryNumber != configuration.maxTry);
+            //tryNumber++;
+        } while (tryNumber != configuration.getMaxTry());
     }
 
     @Override

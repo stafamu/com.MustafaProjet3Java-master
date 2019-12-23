@@ -1,19 +1,13 @@
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-
 import java.util.Scanner;
-import java.util.concurrent.Callable;
+
 
 public class Menu {
 
     protected static final Logger logger = LogManager.getLogger();
     Scanner sc = new Scanner(System.in);
-    String inputChoice;
-    Human human = new Human();
-    AI ai = new AI();
-
+    protected String inputChoice;
 
     public Menu() {
 
@@ -24,12 +18,11 @@ public class Menu {
      * Method used to show the welcome Menu
      */
 
-
     public void welcomeMenu() {
 
         logger.info("Affichage du menu d'accueil");
 
-        System.out.println("Bienvenue dans Escape Game ONLINE  ");
+        logger.info("Bienvenue dans Escape Game ONLINE  ");
         System.out.println("Veuillez choisir votre mode : ");
         System.out.println("*************************************");
         System.out.println("1 - Challenger");
