@@ -36,7 +36,6 @@ public class DuelMode extends GameMode {
                 victoryHuman();
                 this.replayGame();
             }
-            //tryNumber++;
         } while (tryNumber != configuration.getMaxTry());
     }
 

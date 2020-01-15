@@ -99,7 +99,7 @@ public class Menu {
         } else if (inputChoice.equals("2")) {
             this.welcomeMenu();
         } else if (inputChoice.equals("3")) {
-
+            logger.info("Quit game");
             System.out.println("Merci d'avoir joué à bientôt !");
             System.exit(0);
         }
