@@ -15,10 +15,11 @@ public class DefenderMode extends GameMode {
     public void play(Player human, Player ai) {
 
         secretCombinationHuman = human.generateSecretCombination();
+
         while (tryNumber != configuration.getMaxTry() + 1 || !compare.equals(compareStringLength())) {
             supposition = ai.makeProposal(maxThick, minThick);
             compare = analyseCombination(secretCombinationHuman, supposition);
-            intelligence(compare.toCharArray());
+            intelligency(compare.toCharArray());
             human.giveHint(compare, tryNumber);
             tryNumber++;
             if (compare.equals(compareStringLength())) {

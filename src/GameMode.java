@@ -32,12 +32,9 @@ public abstract class GameMode {
         initValue(maxThick, 9);
         initValue(minThick, 0);
 
-
     }
 
-
     public void play(Player human, Player ai) {
-
 
     }
 
@@ -49,9 +46,7 @@ public abstract class GameMode {
 
         String response = "";
 
-
         for (int i = 0; i < combinationToFind.length; i++) {
-
 
             if (combinationToFind[i] > combinationProposal[i]) {
                 response += "+";
@@ -62,7 +57,6 @@ public abstract class GameMode {
             } else {
                 response += "=";
             }
-
         }
         return response;
     }
@@ -71,7 +65,6 @@ public abstract class GameMode {
      * Method which compares two Strings
      * @return
      */
-
 
     public String compareStringLength() {
         String stringLength = new String();
@@ -89,7 +82,7 @@ public abstract class GameMode {
         }
     }
 
-    public void intelligence(char[] combinationPlusMinus) {
+    public void intelligency(char[] combinationPlusMinus) {
 
         for (int i = 0; i < configuration.getCombSize(); i++) {
 
@@ -98,8 +91,6 @@ public abstract class GameMode {
 
             } else if (combinationPlusMinus[i] == '+') {
                 minThick[i] = supposition[i] + 1;
-
-
             }
         }
     }
@@ -110,8 +101,6 @@ public abstract class GameMode {
 
             System.out.print(arrayToPrint[i]);
         }
-
-
     }
 
     public void victoryHuman() {

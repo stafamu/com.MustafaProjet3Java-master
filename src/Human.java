@@ -49,7 +49,6 @@ public class Human extends Player {
         }
     }
 
-
     @Override
     public int[] makeProposal(int[] max, int[] min) {
         return new int[0];
@@ -78,7 +77,6 @@ public class Human extends Player {
 
         System.out.print("  -> Réponse : " + hint + " ------> " + " il vous reste " + (configuration.getMaxTry() - tryNumber) + " essais ! ");
         System.out.println();
-
 
     }
 

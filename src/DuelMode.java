@@ -1,6 +1,5 @@
 public class DuelMode extends GameMode {
 
-
     Human human = new Human();
     private String compareP1 = "";
     private String compareP2 = "";
@@ -25,7 +24,7 @@ public class DuelMode extends GameMode {
             tryNumber++;
             supposition = ai.makeProposal(maxThick, minThick);
             compareP1 = analyseCombination(secretCombinationHuman, supposition);
-            intelligence(compareP1.toCharArray());
+            intelligency(compareP1.toCharArray());
             human.giveHint(compareP1, tryNumber);
             if (compareP1.equals(compareStringLength())) {
                 victoryAI();
